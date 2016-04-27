@@ -6,6 +6,23 @@
     <param-value>initContextParam</param-value>
   </context-param>
   <servlet>
+    <servlet-name>HelloWorldServlet</servlet-name>
+    <servlet-class>ru.mti.edu.servlet.HelloWorldServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HelloWorldServlet</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AsyncTestServlet</servlet-name>
+    <servlet-class>ru.mti.edu.servlet.AsyncTestServlet</servlet-class>
+    <async-supported>true</async-supported>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AsyncTestServlet</servlet-name>
+    <url-pattern>/AsyncTestServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>LearningServlet</servlet-name>
     <servlet-class>ru.mti.edu.servlet.LearningServlet</servlet-class>
     <init-param>
@@ -18,19 +35,12 @@
     <url-pattern>/hello/*</url-pattern>
     <url-pattern>/Learning</url-pattern>
   </servlet-mapping>
-  <!-- 
-  <servlet>
-    <servlet-name>HelloWorldServlet</servlet-name>
-    <servlet-class>ru.mti.edu.servlet.HelloWorldServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>HelloWorldServlet</servlet-name>
-    <url-pattern>/hello/*</url-pattern>
-  </servlet-mapping>
-   -->
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>
+  <listener>
+    <listener-class>ru.mti.listener.HttpTestListener</listener-class>
+  </listener>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -39,4 +49,12 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+   <error-page>
+     <exception-type>java.lang.Throwable</exception-type> 
+     <location>/error.jsp</location> 
+    </error-page>
+    <error-page>
+     <error-code>404</error-code> 
+     <location>/404.jsp</location> 
+    </error-page>
 </web-app>

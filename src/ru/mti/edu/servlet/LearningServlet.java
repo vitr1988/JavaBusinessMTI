@@ -38,6 +38,10 @@ public class LearningServlet extends HttpServlet {
 		if (request.getParameter("p") != null){
 			value = request.getParameter("p"); 
 		}
+		String param = (String) request.getAttribute("testParam");
+		if (null != param){
+			response.getWriter().append(param);
+		}
 		response.getWriter().append(value); //initContextParam
 		response.getWriter().append(getServletContext().getInitParameter("initContextParam")); //initContextParam
 //		response.getWriter().append("Learning Servlet:" + value);

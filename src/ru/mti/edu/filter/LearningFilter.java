@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequestWrapper;
 /**
  * Servlet Filter implementation class LearningFilter
  */
-@WebFilter("/*")
+//@WebFilter("/*")
 public class LearningFilter implements Filter {
 
 	/**
